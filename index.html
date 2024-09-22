@@ -44,17 +44,15 @@ document.addEventListener('mousemove', (e) => {
     const x = e.clientX - (wrapper.offsetLeft + width / 2);
     const y = e.clientY - (wrapper.offsetTop + height / 2);
 
-    const tiltX = (y / height) * -15; // Increased max tilt
-    const tiltY = (x / width) * 15; // Increased max tilt
+    const tiltX = (y / height) * -15; // Reverse the y tilt
+    const tiltY = (x / width) * 15; // Reverse the x tilt
 
-    wrapper.style.transform = `rotateX(${tiltX}deg) rotateY(${tiltY}deg) translateZ(20px)`; // Added depth with translateZ
+    wrapper.style.transform = `rotateX(${tiltX}deg) rotateY(${tiltY}deg) translateZ(20px)`;
 });
 
-    wrapper.addEventListener('mouseleave', () => {
+wrapper.addEventListener('mouseleave', () => {
     wrapper.style.transform = 'rotateX(0deg) rotateY(0deg) translateZ(0px)'; // Reset on mouse leave
 });
-
-
     </script>
 </body>
 
