@@ -7,93 +7,56 @@
     font-family: "Poppins", sans-serif;
 }
 
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: 'Arial', sans-serif;
-}
-
-body {
-    background-color: #f4f4f4;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
-
-.container {
+container {
+    width: 450px;
+    padding: 20px;
+    margin-top: 80px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+  }
+  
+  h1 {
     text-align: center;
-    background: white;
-    border-radius: 15px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    padding: 40px;
-    width: 300px;
-    transition: transform 0.3s;
-}
-
-.container:hover {
-    transform: scale(1.02);
-}
-
-.fade-in {
-    opacity: 1;
-    transition: opacity 0.5s ease-in;
-}
-
-.hidden {
-    display: none;
-}
-
-.slide-up {
-    transform: translateY(-50px);
-    opacity: 0;
-    transition: transform 0.5s ease, opacity 0.5s ease;
-}
-
-.question {
-    margin: 20px 0;
-    color: #333;
-}
-
-input[type="text"] {
-    padding: 10px;
-    width: 100%;
-    border: 2px solid #ccc;
-    border-radius: 10px;
+  }
+  
+  .question {
+    font-weight: bold;
     margin-bottom: 10px;
-    transition: border 0.3s, box-shadow 0.3s;
-}
-
-input[type="text"].beveled {
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-input[type="text"]:focus {
-    border: 2px solid #4CAF50;
-    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
-}
-
-.submit-button {
-    padding: 10px 15px;
-    background-color: #4CAF50;
-    color: white;
+  }
+  
+  .options {
+    margin-bottom: 20px;
+  }
+  
+  .option {
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  .button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #428bca;
+    color: #fff;
     border: none;
-    border-radius: 5px;
     cursor: pointer;
+    font-size: 16px;
+    border-radius: 4px;
     transition: background-color 0.3s;
-}
-
-.submit-button:hover {
-    background-color: #45a049;
-}
-
-.response {
-    margin-top: 10px;
-    font-style: italic;
-    color: #333;
-}
-
-.response.hidden {
+    margin-right: 10px;
+  }
+  
+  .button:hover {
+    background-color: #3071a9;
+  }
+  
+  .result {
+    text-align: center;
+    margin-top: 20px;
+    font-weight: bold;
+  }
+  
+  .hide{
     display: none;
-}
+  }

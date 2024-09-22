@@ -1,73 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome Page</title>
-    <link rel="stylesheet" href="styles.css">
+  <title>JavaScript Quiz App</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <div id="welcome" class="fade-in">Welcome</div>
-        <div id="question-container" class="hidden">
-            <h2 id="question" class="question"></h2>
-            <input type="text" id="answer" placeholder="Your answer..." class="beveled" />
-            <button id="submit" class="submit-button">Submit</button>
-            <div id="response" class="response hidden"></div>
-        </div>
-    </div>
-
-    <script>
-        const questions = [
-            "What is your favorite color?",
-            "If you could travel anywhere, where would you go?",
-            "What is your dream job?",
-            "What is your favorite book?",
-            "What hobby have you always wanted to pick up?",
-            "If you could meet any historical figure, who would it be?",
-            "What is your favorite movie?",
-            "What would you do with a million dollars?",
-            "What is your go-to comfort food?",
-            "What is something you’ve always wanted to learn?",
-            "What is your favorite season and why?",
-            "What is your happiest memory?"
-        ];
-
-        const welcome = document.getElementById('welcome');
-        const questionContainer = document.getElementById('question-container');
-        const questionElement = document.getElementById('question');
-        const responseElement = document.getElementById('response');
-
-        // Fade and slide up the welcome message
-        setTimeout(() => {
-            welcome.classList.add('slide-up');
-            setTimeout(() => {
-                welcome.classList.add('hidden');
-                showNextQuestion();
-            }, 500);
-        }, 2000);
-
-        function showNextQuestion() {
-            const randomIndex = Math.floor(Math.random() * questions.length);
-            questionElement.textContent = questions[randomIndex];
-            questionContainer.classList.remove('hidden');
-            responseElement.classList.add('hidden'); // Hide response initially
-        }
-
-        document.getElementById('submit').addEventListener('click', () => {
-            const answer = document.getElementById('answer').value;
-            responseElement.textContent = `You answered: "${answer}". That's interesting!`;
-            responseElement.classList.remove('hidden');
-
-            // Clear the input
-            document.getElementById('answer').value = '';
-
-            // Show next question after a delay
-            setTimeout(() => {
-                responseElement.classList.add('hidden');
-                showNextQuestion();
-            }, 2000);
-        });
-    </script>
+  <div class="container">
+    <h1>Sune's Quiz</h1>
+    <div id="quiz"></div>
+    <div id="result" class="result"></div>
+    <button id="submit" class="button">Submit</button>
+    <button id="retry" class="button hide">Retry</button>
+    <button id="showAnswer" class="button hide">Show Answer</button>
+  </div>
+  <script src="script.js"></script>
 </body>
 </html>
