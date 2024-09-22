@@ -37,22 +37,23 @@
         </form>
     </div>
     <script>
-        const wrapper = document.querySelector('.wrapper');
+const wrapper = document.querySelector('.wrapper');
 
 document.addEventListener('mousemove', (e) => {
     const { width, height } = wrapper.getBoundingClientRect();
     const x = e.clientX - (wrapper.offsetLeft + width / 2);
     const y = e.clientY - (wrapper.offsetTop + height / 2);
 
-    const tiltX = (y / height) * 10; // 10 degrees max tilt
-    const tiltY = (x / width) * -10; // -10 degrees max tilt
+    const tiltX = (y / height) * 15; // Increased max tilt
+    const tiltY = (x / width) * -15; // Increased max tilt
 
-    wrapper.style.transform = `rotateX(${tiltX}deg) rotateY(${tiltY}deg)`;
+    wrapper.style.transform = `rotateX(${tiltX}deg) rotateY(${tiltY}deg) translateZ(20px)`; // Added depth with translateZ
 });
 
     wrapper.addEventListener('mouseleave', () => {
-    wrapper.style.transform = 'rotateX(0deg) rotateY(0deg)'; // Reset on mouse leave
+    wrapper.style.transform = 'rotateX(0deg) rotateY(0deg) translateZ(0px)'; // Reset on mouse leave
 });
+
 
     </script>
 </body>

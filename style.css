@@ -19,13 +19,15 @@ body {
 
 .wrapper {
     width: 420px;
-    background-color: rgba(179, 51, 98, 0.8);
+    background: linear-gradient(135deg, rgba(179, 51, 98, 0.8), rgba(255, 105, 180, 0.8));
     color: white;
     border-radius: 10px;
     padding: 30px 40px;
-    transition: transform 0.1s, box-shadow 0.1s; /* Smooth transition */
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Shadow effect */
+    transition: transform 0.1s, box-shadow 0.1s;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); 
+    transform-style: preserve-3d; 
 }
+
 
 
 .wrapper h1 {
