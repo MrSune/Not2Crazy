@@ -36,7 +36,27 @@
             </div>
         </form>
     </div>
+    <script>
+        const wrapper = document.querySelector('.wrapper');
 
+        wrapper.addEventListener('mousemove', (e) => {
+            const { width, height } = wrapper.getBoundingClientRect();
+            const x = e.clientX - wrapper.offsetLeft;
+            const y = e.clientY - wrapper.offsetTop;
+
+            const xPercent = (x / width) * 100;
+            const yPercent = (y / height) * 100;
+
+            const tiltX = ((yPercent - 50) / 50) * 10; // 10 degrees tilt
+            const tiltY = ((xPercent - 50) / 50) * -10; // -10 degrees tilt
+
+            wrapper.style.transform = `rotateX(${tiltX}deg) rotateY(${tiltY}deg)`;
+        });
+
+        wrapper.addEventListener('mouseleave', () => {
+            wrapper.style.transform = 'rotateX(0deg) rotateY(0deg)'; // Reset on mouse leave
+        });
+    </script>
 </body>
 
 </html>

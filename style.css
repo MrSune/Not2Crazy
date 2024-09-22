@@ -19,10 +19,11 @@ body {
 
 .wrapper {
     width: 420px;
-    background-color: rgb(179, 51, 98)8, 0, 98;
+    background-color: rgba(179, 51, 98, 0.8);
     color: white;
     border-radius: 10px;
     padding: 30px 40px;
+    transition: transform 0.1s; 
 }
 
 .wrapper h1 {
@@ -113,3 +114,5 @@ body {
 .register-link p a:hover {
     text-decoration: underline;
 }
+
+
