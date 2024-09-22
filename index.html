@@ -1,60 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,
-    intitial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="stylesheet" href="style.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
-
 <body>
-
     <div class="wrapper">
-        <form action="">
+        <form id="login-form">
             <h1>Login</h1>
-            <h2>Made by MrSune</h2>
             <div class="input-box">
                 <input type="text" placeholder="Email" required>
                 <i class='bx bxs-envelope'></i>
             </div>
             <div class="input-box">
                 <input type="password" placeholder="Password" required>
-                <i class='bx bx-lock-alt' ></i>
+                <i class='bx bx-lock-alt'></i>
             </div>
             <div class="remember-forgot">
-                <label"><input type="checkbox"> Remember me</label>
+                <label><input type="checkbox"> Remember me</label>
                 <a href="#">Forgot Password?</a>
             </div>
-
-            <button type="submit" class="btn"></button>
-
+            <button type="submit" class="btn">Login</button>
             <div class="register-link">
-                <p>Don't have an account? <a href="#">Register</a></p>
+                <p>Don't have an account? <a href="#" id="show-register">Register</a></p>
+            </div>
+        </form>
+
+        <form id="register-form" style="display: none;">
+            <h1>Register</h1>
+            <div class="input-box">
+                <input type="text" placeholder="Name" required>
+                <i class='bx bxs-user'></i>
+            </div>
+            <div class="input-box">
+                <input type="text" placeholder="Email" required>
+                <i class='bx bxs-envelope'></i>
+            </div>
+            <div class="input-box">
+                <input type="password" placeholder="Password" required>
+                <i class='bx bx-lock-alt'></i>
+            </div>
+            <button type="submit" class="btn">Register</button>
+            <div class="register-link">
+                <p>Already have an account? <a href="#" id="show-login">Login</a></p>
             </div>
         </form>
     </div>
+
     <script>
-const wrapper = document.querySelector('.wrapper');
+        const wrapper = document.querySelector('.wrapper');
 
-document.addEventListener('mousemove', (e) => {
-    const { width, height } = wrapper.getBoundingClientRect();
-    const x = e.clientX - (wrapper.offsetLeft + width / 2);
-    const y = e.clientY - (wrapper.offsetTop + height / 2);
+        document.addEventListener('mousemove', (e) => {
+            const { width, height } = wrapper.getBoundingClientRect();
+            const x = e.clientX - (wrapper.offsetLeft + width / 2);
+            const y = e.clientY - (wrapper.offsetTop + height / 2);
 
-    const tiltX = (y / height) * -15; // Reverse the y tilt
-    const tiltY = (x / width) * 15; // Reverse the x tilt
+            const tiltX = (y / height) * -15; // Reverse the y tilt
+            const tiltY = (x / width) * 15; // Reverse the x tilt
 
-    wrapper.style.transform = `rotateX(${tiltX}deg) rotateY(${tiltY}deg) translateZ(20px)`;
-});
+            wrapper.style.transform = `rotateX(${tiltX}deg) rotateY(${tiltY}deg) translateZ(20px)`;
+        });
 
-wrapper.addEventListener('mouseleave', () => {
-    wrapper.style.transform = 'rotateX(0deg) rotateY(0deg) translateZ(0px)'; // Reset on mouse leave
-});
-    </script>
-</body>
-
-</html>
+        wrapper.addEventListener('mouseleave', () => {
+       
