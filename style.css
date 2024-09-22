@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
 * {
     margin: 0;
@@ -7,56 +7,86 @@
     font-family: "Poppins", sans-serif;
 }
 
-container {
-    width: 450px;
-    padding: 20px;
-    margin-top: 80px;
-    background-color: #fff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+body {
+    background-color: #f7f9fc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    width: 100%;
+    max-width: 450px;
+    padding: 30px;
+    margin-top: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     border-radius: 20px;
-  }
-  
-  h1 {
+    transition: transform 0.3s;
+}
+
+.container:hover {
+    transform: translateY(-5px);
+}
+
+h1 {
     text-align: center;
-  }
-  
-  .question {
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
-  
-  .options {
     margin-bottom: 20px;
-  }
-  
-  .option {
+    font-size: 24px;
+    color: #333;
+}
+
+.question {
+    font-weight: bold;
+    margin-bottom: 15px;
+    font-size: 18px;
+    color: #444;
+}
+
+.options {
+    margin-bottom: 20px;
+}
+
+.option {
     display: block;
     margin-bottom: 10px;
-  }
-  
-  .button {
+    padding: 10px;
+    background-color: #f1f1f1;
+    border-radius: 10px;
+    transition: background-color 0.3s;
+}
+
+.option:hover {
+    background-color: #e2e2e2;
+}
+
+.button {
     display: inline-block;
-    padding: 10px 20px;
-    background-color: #428bca;
-    color: #fff;
+    padding: 12px 20px;
+    background-color: #007bff;
+    color: #ffffff;
     border: none;
     cursor: pointer;
     font-size: 16px;
-    border-radius: 4px;
-    transition: background-color 0.3s;
-    margin-right: 10px;
-  }
-  
-  .button:hover {
-    background-color: #3071a9;
-  }
-  
-  .result {
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.2s;
+    margin: 5px 0;
+}
+
+.button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+.result {
     text-align: center;
     margin-top: 20px;
     font-weight: bold;
-  }
-  
-  .hide{
+    font-size: 18px;
+    color: #444;
+}
+
+.hide {
     display: none;
-  }
+}
