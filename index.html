@@ -1,16 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width,
+    intitial-scale=1.0">
     <title>Login</title>
     <link rel="stylesheet" href="style.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
+
 <body>
+
     <div class="wrapper">
-        <form id="login-form">
+        <form action="">
             <h1>Login</h1>
             <div class="input-box">
                 <input type="text" placeholder="Email" required>
@@ -18,66 +22,21 @@
             </div>
             <div class="input-box">
                 <input type="password" placeholder="Password" required>
-                <i class='bx bx-lock-alt'></i>
+                <i class='bx bx-lock-alt' ></i>
             </div>
             <div class="remember-forgot">
-                <label><input type="checkbox"> Remember me</label>
+                <label"><input type="checkbox"> Remember me</label>
                 <a href="#">Forgot Password?</a>
             </div>
-            <button type="submit" class="btn">Login</button>
-            <div class="register-link">
-                <p>Don't have an account? <a href="#" id="show-register">Register</a></p>
-            </div>
-        </form>
 
-        <form id="register-form" style="display: none;">
-            <h1>Register</h1>
-            <div class="input-box">
-                <input type="text" placeholder="Name" required>
-                <i class='bx bxs-user'></i>
-            </div>
-            <div class="input-box">
-                <input type="text" placeholder="Email" required>
-                <i class='bx bxs-envelope'></i>
-            </div>
-            <div class="input-box">
-                <input type="password" placeholder="Password" required>
-                <i class='bx bx-lock-alt'></i>
-            </div>
-            <button type="submit" class="btn">Register</button>
+            <button type="submit" class="btn"></button>
+
             <div class="register-link">
-                <p>Already have an account? <a href="#" id="show-login">Login</a></p>
+                <p>Don't have an account? <a href="#">Register</a></p>
             </div>
         </form>
     </div>
-
-    <script>
-        const loginForm = document.getElementById('login-form');
-        const registerForm = document.getElementById('register-form');
-        const showRegister = document.getElementById('show-register');
-        const showLogin = document.getElementById('show-login');
-
-        showRegister.addEventListener('click', (e) => {
-            e.preventDefault();
-            loginForm.classList.add('fade-out');
-            setTimeout(() => {
-                loginForm.style.display = 'none';
-                registerForm.style.display = 'block';
-                registerForm.classList.add('fade-in');
-                setTimeout(() => registerForm.classList.remove('fade-in'), 500);
-            }, 500);
-        });
-
-        showLogin.addEventListener('click', (e) => {
-            e.preventDefault();
-            registerForm.classList.add('fade-out');
-            setTimeout(() => {
-                registerForm.style.display = 'none';
-                loginForm.style.display = 'block';
-                loginForm.classList.add('fade-in');
-                setTimeout(() => loginForm.classList.remove('fade-in'), 500);
-            }, 500);
-        });
-    </script>
+    
 </body>
+
 </html>
