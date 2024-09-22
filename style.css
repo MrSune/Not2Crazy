@@ -23,8 +23,10 @@ body {
     color: white;
     border-radius: 10px;
     padding: 30px 40px;
-    transition: transform 0.1s; 
+    transition: transform 0.1s, box-shadow 0.1s; /* Smooth transition */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Shadow effect */
 }
+
 
 .wrapper h1 {
     font-size: 36px;

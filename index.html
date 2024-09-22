@@ -39,23 +39,21 @@
     <script>
         const wrapper = document.querySelector('.wrapper');
 
-        wrapper.addEventListener('mousemove', (e) => {
-            const { width, height } = wrapper.getBoundingClientRect();
-            const x = e.clientX - wrapper.offsetLeft;
-            const y = e.clientY - wrapper.offsetTop;
+document.addEventListener('mousemove', (e) => {
+    const { width, height } = wrapper.getBoundingClientRect();
+    const x = e.clientX - (wrapper.offsetLeft + width / 2);
+    const y = e.clientY - (wrapper.offsetTop + height / 2);
 
-            const xPercent = (x / width) * 100;
-            const yPercent = (y / height) * 100;
+    const tiltX = (y / height) * 10; // 10 degrees max tilt
+    const tiltY = (x / width) * -10; // -10 degrees max tilt
 
-            const tiltX = ((yPercent - 50) / 50) * 10; // 10 degrees tilt
-            const tiltY = ((xPercent - 50) / 50) * -10; // -10 degrees tilt
+    wrapper.style.transform = `rotateX(${tiltX}deg) rotateY(${tiltY}deg)`;
+});
 
-            wrapper.style.transform = `rotateX(${tiltX}deg) rotateY(${tiltY}deg)`;
-        });
+    wrapper.addEventListener('mouseleave', () => {
+    wrapper.style.transform = 'rotateX(0deg) rotateY(0deg)'; // Reset on mouse leave
+});
 
-        wrapper.addEventListener('mouseleave', () => {
-            wrapper.style.transform = 'rotateX(0deg) rotateY(0deg)'; // Reset on mouse leave
-        });
     </script>
 </body>
 
