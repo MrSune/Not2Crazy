@@ -11,77 +11,17 @@
 </head>
 
 <body>
+        <div class="welcome-message">Welcome</div
 
-    <div class="wrapper">
-        <form id="authForm">
-            <h1 id="formTitle">Login</h1>
-            <div class="input-box">
-                <input type="text" id="email" placeholder="Email" required>
-                <i class='bx bxs-envelope'></i>
-            </div>
-            <div class="input-box">
-                <input type="password" id="password" placeholder="Password" required>
-                <i class='bx bx-lock-alt'></i>
-            </div>
-            <div class="remember-forgot">
-                <label><input type="checkbox"> Remember me</label>
-                <a href="#">Forgot Password?</a>
-            </div>
-
-            <button type="submit" class="btn" id="submitBtn">Login</button>
-
-            <div class="register-link">
-                <p id="toggleLink">Don't have an account? <a href="#" id="registerLink">Register</a></p>
-            </div>
-        </form>
-    </div>
-    
-    <script>
-        document.getElementById('authForm').addEventListener('submit', async (e) => {
-            e.preventDefault();
-
-            const email = document.getElementById('email').value;
-            const password = document.getElementById('password').value;
-            const isRegistering = document.getElementById('submitBtn').textContent === 'Register';
-
-            const url = isRegistering ? '/register' : '/login';
-
-            const response = await fetch(url, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ email, password })
-            });
-
-            const result = await response.json();
-            if (response.ok) {
-                alert(isRegistering ? 'Registration successful!' : 'Login successful! Token: ' + result.token);
-                // Optionally store the token in localStorage
-                if (!isRegistering) localStorage.setItem('token', result.token);
-            } else {
-                alert(result.message);
-            }
-        });
-
-        // Toggle between login and registration
-        document.getElementById('registerLink').addEventListener('click', (e) => {
-            e.preventDefault();
-            document.getElementById('formTitle').textContent = 'Register';
-            document.getElementById('submitBtn').textContent = 'Register';
-            document.getElementById('toggleLink').innerHTML = 'Already have an account? <a href="#" id="loginLink">Login</a>';
-        });
-
-        // Handle the switch back to login
-        document.addEventListener('click', (e) => {
-            if (e.target.id === 'loginLink') {
-                e.preventDefault();
-                document.getElementById('formTitle').textContent = 'Login';
-                document.getElementById('submitBtn').textContent = 'Login';
-                document.getElementById('toggleLink').innerHTML = 'Don\'t have an account? <a href="#" id="registerLink">Register</a>';
-            }
-        });
-    </script>
+            <script>
+                window.onload = function() {
+                    const message = document.querySelector('.welcome-message');
+                    setTimeout(() => {
+                        message.classList.add('show');
+                    }, 500); // Delay before showing the message
+                };
+            </script>
+            
 </body>
 
 </html>
