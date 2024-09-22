@@ -1,18 +1,20 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>JavaScript Quiz App</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Click the Button Game</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="container">
-    <h1>Sune's Quiz</h1>
-    <div id="quiz"></div>
-    <div id="result" class="result"></div>
-    <button id="submit" class="button">Submit</button>
-    <button id="retry" class="button hide">Retry</button>
-    <button id="showAnswer" class="button hide">Show Answer</button>
-  </div>
-  <script src="script.js"></script>
+    <div class="container">
+        <button id="clickButton">Click Me!</button>
+    </div>
+
+    <script>
+        document.getElementById('clickButton').addEventListener('click', function() {
+            alert('Button clicked!');
+        });
+    </script>
 </body>
 </html>
