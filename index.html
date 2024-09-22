@@ -81,6 +81,34 @@
                 document.getElementById('toggleLink').innerHTML = 'Don\'t have an account? <a href="#" id="registerLink">Register</a>';
             }
         });
+
+        document.addEventListener('mousemove', (event) => {
+    const wrapper = document.querySelector('.wrapper');
+    const { clientX: mouseX, clientY: mouseY } = event;
+
+    // Get the center of the wrapper
+    const { left, top, width, height } = wrapper.getBoundingClientRect();
+    const centerX = left + width / 2;
+    const centerY = top + height / 2;
+
+    // Calculate the tilt based on mouse position
+    const deltaX = mouseX - centerX;
+    const deltaY = mouseY - centerY;
+
+    // Calculate tilt values
+    const tiltX = deltaY / 20; // Adjust the divisor to change sensitivity
+    const tiltY = -deltaX / 20; // Adjust the divisor to change sensitivity
+
+    // Apply tilt
+    wrapper.style.transform = `translateZ(0) rotateX(${tiltX}deg) rotateY(${tiltY}deg)`;
+});
+
+// Reset tilt on mouse leave
+document.querySelector('.wrapper').addEventListener('mouseleave', () => {
+    const wrapper = document.querySelector('.wrapper');
+    wrapper.style.transform = 'translateZ(0) rotateX(0deg) rotateY(0deg)';
+});
+
     </script>
 </body>
 
