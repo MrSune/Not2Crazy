@@ -1,139 +1,154 @@
 const quizData = [
     {
-        question: 'What does HTML stand for?',
-        options: ['HyperText Markup Language', 'HighText Machine Language', 'HyperTool Multi Language', 'HyperText Markup Library'],
-        answer: 'HyperText Markup Language',
+      question: 'What is the capital of France?',
+      options: ['Paris', 'London', 'Berlin', 'Madrid'],
+      answer: 'Paris',
     },
     {
-        question: 'Which language is used for styling web pages?',
-        options: ['HTML', 'CSS', 'JavaScript', 'PHP'],
-        answer: 'CSS',
+      question: 'What is the largest planet in our solar system?',
+      options: ['Mars', 'Saturn', 'Jupiter', 'Neptune'],
+      answer: 'Jupiter',
     },
     {
-        question: 'What is the purpose of JavaScript?',
-        options: ['To style HTML', 'To create interactive web pages', 'To structure content', 'To manage databases'],
-        answer: 'To create interactive web pages',
+      question: 'Which country won the FIFA World Cup in 2018?',
+      options: ['Brazil', 'Germany', 'France', 'Argentina'],
+      answer: 'France',
     },
     {
-        question: 'Which of the following is a JavaScript framework?',
-        options: ['Django', 'Flask', 'React', 'Ruby on Rails'],
-        answer: 'React',
+      question: 'What is the tallest mountain in the world?',
+      options: ['Mount Everest', 'K2', 'Kangchenjunga', 'Makalu'],
+      answer: 'Mount Everest',
     },
     {
-        question: 'What is a CSS preprocessor?',
-        options: ['LESS', 'HTML', 'JavaScript', 'SQL'],
-        answer: 'LESS',
+      question: 'Which is the largest ocean on Earth?',
+      options: [
+        'Pacific Ocean',
+        'Indian Ocean',
+        'Atlantic Ocean',
+        'Arctic Ocean',
+      ],
+      answer: 'Pacific Ocean',
     },
     {
-        question: 'What does DOM stand for?',
-        options: ['Document Object Model', 'Data Object Model', 'Document Oriented Model', 'Dynamic Object Model'],
-        answer: 'Document Object Model',
+      question: 'What is the chemical symbol for gold?',
+      options: ['Au', 'Ag', 'Cu', 'Fe'],
+      answer: 'Au',
     },
     {
-        question: 'Which tag is used to define an internal style sheet?',
-        options: ['<style>', '<css>', '<script>', '<stylesheet>'],
-        answer: '<style>',
+      question: 'Who painted the Mona Lisa?',
+      options: [
+        'Pablo Picasso',
+        'Vincent van Gogh',
+        'Leonardo da Vinci',
+        'Michelangelo',
+      ],
+      answer: 'Leonardo da Vinci',
     },
     {
-        question: 'What is the correct way to add a comment in JavaScript?',
-        options: ['// This is a comment', '<!-- This is a comment -->', '# This is a comment', '/* This is a comment */'],
-        answer: '// This is a comment',
+      question: 'Which planet is known as the Red Planet?',
+      options: ['Mars', 'Venus', 'Mercury', 'Uranus'],
+      answer: 'Mars',
     },
     {
-        question: 'What does API stand for?',
-        options: ['Application Programming Interface', 'Application Programming Integration', 'Applied Programming Interface', 'Applied Programming Integration'],
-        answer: 'Application Programming Interface',
+      question: 'What is the largest species of shark?',
+      options: [
+        'Great White Shark',
+        'Whale Shark',
+        'Tiger Shark',
+        'Hammerhead Shark',
+      ],
+      answer: 'Whale Shark',
     },
     {
-        question: 'Which HTML attribute is used to define inline styles?',
-        options: ['style', 'class', 'font', 'styles'],
-        answer: 'style',
+      question: 'Which animal is known as the King of the Jungle?',
+      options: ['Lion', 'Tiger', 'Elephant', 'Giraffe'],
+      answer: 'Lion',
     },
-];
-
-const quizContainer = document.getElementById('quiz');
-const resultContainer = document.getElementById('result');
-const submitButton = document.getElementById('submit');
-const retryButton = document.getElementById('retry');
-const showAnswerButton = document.getElementById('showAnswer');
-
-let currentQuestion = 0;
-let score = 0;
-let incorrectAnswers = [];
-
-function shuffleArray(array) {
+  ];
+  
+  const quizContainer = document.getElementById('quiz');
+  const resultContainer = document.getElementById('result');
+  const submitButton = document.getElementById('submit');
+  const retryButton = document.getElementById('retry');
+  const showAnswerButton = document.getElementById('showAnswer');
+  
+  let currentQuestion = 0;
+  let score = 0;
+  let incorrectAnswers = [];
+  
+  function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [array[i], array[j]] = [array[j], array[i]];
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
     }
-}
-
-function displayQuestion() {
+  }
+  
+  function displayQuestion() {
     const questionData = quizData[currentQuestion];
-
+  
     const questionElement = document.createElement('div');
     questionElement.className = 'question';
     questionElement.innerHTML = questionData.question;
-
+  
     const optionsElement = document.createElement('div');
     optionsElement.className = 'options';
-
+  
     const shuffledOptions = [...questionData.options];
     shuffleArray(shuffledOptions);
-
+  
     for (let i = 0; i < shuffledOptions.length; i++) {
-        const option = document.createElement('label');
-        option.className = 'option';
-
-        const radio = document.createElement('input');
-        radio.type = 'radio';
-        radio.name = 'quiz';
-        radio.value = shuffledOptions[i];
-
-        const optionText = document.createTextNode(shuffledOptions[i]);
-
-        option.appendChild(radio);
-        option.appendChild(optionText);
-        optionsElement.appendChild(option);
+      const option = document.createElement('label');
+      option.className = 'option';
+  
+      const radio = document.createElement('input');
+      radio.type = 'radio';
+      radio.name = 'quiz';
+      radio.value = shuffledOptions[i];
+  
+      const optionText = document.createTextNode(shuffledOptions[i]);
+  
+      option.appendChild(radio);
+      option.appendChild(optionText);
+      optionsElement.appendChild(option);
     }
-
+  
     quizContainer.innerHTML = '';
     quizContainer.appendChild(questionElement);
     quizContainer.appendChild(optionsElement);
-}
-
-function checkAnswer() {
+  }
+  
+  function checkAnswer() {
     const selectedOption = document.querySelector('input[name="quiz"]:checked');
     if (selectedOption) {
-        const answer = selectedOption.value;
-        if (answer === quizData[currentQuestion].answer) {
-            score++;
-        } else {
-            incorrectAnswers.push({
-                question: quizData[currentQuestion].question,
-                incorrectAnswer: answer,
-                correctAnswer: quizData[currentQuestion].answer,
-            });
-        }
-        currentQuestion++;
-        selectedOption.checked = false;
-        if (currentQuestion < quizData.length) {
-            displayQuestion();
-        } else {
-            displayResult();
-        }
+      const answer = selectedOption.value;
+      if (answer === quizData[currentQuestion].answer) {
+        score++;
+      } else {
+        incorrectAnswers.push({
+          question: quizData[currentQuestion].question,
+          incorrectAnswer: answer,
+          correctAnswer: quizData[currentQuestion].answer,
+        });
+      }
+      currentQuestion++;
+      selectedOption.checked = false;
+      if (currentQuestion < quizData.length) {
+        displayQuestion();
+      } else {
+        displayResult();
+      }
     }
-}
-
-function displayResult() {
+  }
+  
+  function displayResult() {
     quizContainer.style.display = 'none';
     submitButton.style.display = 'none';
     retryButton.style.display = 'inline-block';
     showAnswerButton.style.display = 'inline-block';
     resultContainer.innerHTML = `You scored ${score} out of ${quizData.length}!`;
-}
-
-function retryQuiz() {
+  }
+  
+  function retryQuiz() {
     currentQuestion = 0;
     score = 0;
     incorrectAnswers = [];
@@ -143,34 +158,34 @@ function retryQuiz() {
     showAnswerButton.style.display = 'none';
     resultContainer.innerHTML = '';
     displayQuestion();
-}
-
-function showAnswer() {
+  }
+  
+  function showAnswer() {
     quizContainer.style.display = 'none';
     submitButton.style.display = 'none';
     retryButton.style.display = 'inline-block';
     showAnswerButton.style.display = 'none';
-
+  
     let incorrectAnswersHtml = '';
     for (let i = 0; i < incorrectAnswers.length; i++) {
-        incorrectAnswersHtml += `
-            <p>
-                <strong>Question:</strong> ${incorrectAnswers[i].question}<br>
-                <strong>Your Answer:</strong> ${incorrectAnswers[i].incorrectAnswer}<br>
-                <strong>Correct Answer:</strong> ${incorrectAnswers[i].correctAnswer}
-            </p>
-        `;
+      incorrectAnswersHtml += `
+        <p>
+          <strong>Question:</strong> ${incorrectAnswers[i].question}<br>
+          <strong>Your Answer:</strong> ${incorrectAnswers[i].incorrectAnswer}<br>
+          <strong>Correct Answer:</strong> ${incorrectAnswers[i].correctAnswer}
+        </p>
+      `;
     }
-
+  
     resultContainer.innerHTML = `
-        <p>You scored ${score} out of ${quizData.length}!</p>
-        <p>Incorrect Answers:</p>
-        ${incorrectAnswersHtml}
+      <p>You scored ${score} out of ${quizData.length}!</p>
+      <p>Incorrect Answers:</p>
+      ${incorrectAnswersHtml}
     `;
-}
-
-submitButton.addEventListener('click', checkAnswer);
-retryButton.addEventListener('click', retryQuiz);
-showAnswerButton.addEventListener('click', showAnswer);
-
-displayQuestion();
+  }
+  
+  submitButton.addEventListener('click', checkAnswer);
+  retryButton.addEventListener('click', retryQuiz);
+  showAnswerButton.addEventListener('click', showAnswer);
+  
+  displayQuestion();
