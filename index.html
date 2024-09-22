@@ -1,27 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <link rel="stylesheet" href="style.css">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>Welcome Page</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
-        <div class="welcome-message">Welcome</div>
+    <div class="container">
+        <div id="welcome" class="fade-in">Welcome</div>
+        <div id="question-container" class="hidden">
+            <h2 id="question"></h2>
+            <input type="text" id="answer" placeholder="Your answer..." />
+            <button id="submit">Submit</button>
+        </div>
+    </div>
 
-            <script>
-                window.onload = function() {
-                    const message = document.querySelector('.welcome-message');
-                    setTimeout(() => {
-                        message.classList.add('show');
-                    }, 500); // Delay before showing the message
-                };
-            </script>
-            
+    <script>
+        const questions = [
+            "What is your favorite color?",
+            "If you could travel anywhere, where would you go?",
+            "What is your dream job?",
+            "What is your favorite book?",
+            "What hobby have you always wanted to pick up?",
+            "If you could meet any historical figure, who would it be?",
+            "What is your favorite movie?",
+            "What would you do with a million dollars?",
+            "What is your go-to comfort food?",
+            "What is something you’ve always wanted to learn?",
+            "What is your favorite season and why?",
+            "What is your happiest memory?"
+        ];
+
+        const welcome = document.getElementById('welcome');
+        const questionContainer = document.getElementById('question-container');
+        const questionElement = document.getElementById('question');
+
+        // Fade and slide up the welcome message
+        setTimeout(() => {
+            welcome.classList.add('slide-up');
+            setTimeout(() => {
+                welcome.classList.add('hidden');
+                // Show the question
+                const randomIndex = Math.floor(Math.random() * questions.length);
+                questionElement.textContent = questions[randomIndex];
+                questionContainer.classList.remove('hidden');
+            }, 500);
+        }, 2000);
+
+        document.getElementById('submit').addEventListener('click', () => {
+            const answer = document.getElementById('answer').value;
+            alert(`You answered: ${answer}`);
+            document.getElementById('answer').value = ''; // Clear input
+        });
+    </script>
 </body>
-
 </html>
